@@ -119,6 +119,7 @@ void Rcpp_precious_remove(SEXP token) {
     if (token == R_NilValue || TYPEOF(token) != LISTSXP) {
         return;
     }
+    SET_TAG(token, R_NilValue);
     SEXP before = CAR(token);
     SEXP after = CDR(token);
     SETCDR(before, after);
